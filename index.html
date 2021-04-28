@@ -1,0 +1,83 @@
+1. use class
+op- switched to db class
+
+2. use class
+0p- switched to db class
+
+3. db.student.insert({name:"Rishabh",age:20})
+op- WriteResult({ "nInserted" : 1 })
+
+4. db.student.insert({name:"Ambesh",age:20})
+op- WriteResult({ "nInserted" : 1 })
+
+5. db.student.find({})
+op- { "_id" : ObjectId("60896aed2c59254680e02e26"), "name" : "Rishabh", "age" : 20 }
+{ "_id" : ObjectId("60896b2a2c59254680e02e27"), "name" : "Ambesh", "age" : 20 }
+
+6. db.student.find({name:"Rishabh"})
+op- { "_id" : ObjectId("60896aed2c59254680e02e26"), "name" : "Rishabh", "age" : 20 }
+
+7. db.student.find({name:"Ambesh"})
+op- { "_id" : ObjectId("60896b2a2c59254680e02e27"), "name" : "Ambesh", "age" : 20 }
+
+8. db.student.find({age:20})
+op- { "_id" : ObjectId("60896aed2c59254680e02e26"), "name" : "Rishabh", "age" : 20 }
+{ "_id" : ObjectId("60896b2a2c59254680e02e27"), "name" : "Ambesh", "age" : 20 }
+
+9. db.student.insert({name:"himanshu"})
+op- WriteResult({ "nInserted" : 1 })
+
+10. db.student.insert({name:"himanshu",age:24})
+op- WriteResult({ "nInserted" : 1 })
+
+11. db.student.find({})
+op- { "_id" : ObjectId("60896aed2c59254680e02e26"), "name" : "Rishabh", "age" : 20 }
+{ "_id" : ObjectId("60896b2a2c59254680e02e27"), "name" : "Ambesh", "age" : 20 }
+{ "_id" : ObjectId("60896d5c2c59254680e02e28"), "name" : "himanshu" }
+{ "_id" : ObjectId("60896dc12c59254680e02e29"), "name" : "himanshu", "age" : 24 }
+
+12. db.student.find({age:{$gt:17}})
+op- { "_id" : ObjectId("60896aed2c59254680e02e26"), "name" : "Rishabh", "age" : 20 }
+{ "_id" : ObjectId("60896b2a2c59254680e02e27"), "name" : "Ambesh", "age" : 20 }
+{ "_id" : ObjectId("60896dc12c59254680e02e29"), "name" : "himanshu", "age" : 24 }
+
+14. db.student.find({age:{$gt:20}})
+op- { "_id" : ObjectId("60896dc12c59254680e02e29"), "name" : "himanshu", "age" : 24 }
+
+15. db.student.find({age:{$gte:20}})
+op- { "_id" : ObjectId("60896aed2c59254680e02e26"), "name" : "Rishabh", "age" : 20 }
+{ "_id" : ObjectId("60896b2a2c59254680e02e27"), "name" : "Ambesh", "age" : 20 }
+{ "_id" : ObjectId("60896dc12c59254680e02e29"), "name" : "himanshu", "age" : 24 }
+
+16. db.student.find({age:{$lt:24}})
+op- { "_id" : ObjectId("60896aed2c59254680e02e26"), "name" : "Rishabh", "age" : 20 }
+{ "_id" : ObjectId("60896b2a2c59254680e02e27"), "name" : "Ambesh", "age" : 20 }
+
+17. db.student.find({age:{$lte:24}})
+op- { "_id" : ObjectId("60896aed2c59254680e02e26"), "name" : "Rishabh", "age" : 20 }
+{ "_id" : ObjectId("60896b2a2c59254680e02e27"), "name" : "Ambesh", "age" : 20 }
+{ "_id" : ObjectId("60896dc12c59254680e02e29"), "name" : "himanshu", "age" : 24 }
+
+18. db.student.insert({name:"Rishabh",age:18})
+op- WriteResult({ "nInserted" : 1 })
+
+19. db.student.find({})
+op- { "_id" : ObjectId("60896aed2c59254680e02e26"), "name" : "Rishabh", "age" : 20 }
+{ "_id" : ObjectId("60896b2a2c59254680e02e27"), "name" : "Ambesh", "age" : 20 }
+{ "_id" : ObjectId("60896d5c2c59254680e02e28"), "name" : "himanshu" }
+{ "_id" : ObjectId("60896dc12c59254680e02e29"), "name" : "himanshu", "age" : 24 }
+{ "_id" : ObjectId("6089718d2c59254680e02e2a"), "name" : "Rishabh", "age" : 18 }
+
+20. db.student.find({$and:[{name:"Rishabh"},{age:18}]})
+op- { "_id" : ObjectId("6089718d2c59254680e02e2a"), "name" : "Rishabh", "age" : 18 }
+
+21. db.student.find({$or:[{name:"Rishabh"},{age:20}]})
+op- { "_id" : ObjectId("60896aed2c59254680e02e26"), "name" : "Rishabh", "age" : 20 }
+{ "_id" : ObjectId("60896b2a2c59254680e02e27"), "name" : "Ambesh", "age" : 20 }
+{ "_id" : ObjectId("6089718d2c59254680e02e2a"), "name" : "Rishabh", "age" : 18 }
+
+22. db.student.find({age:{$not:{$gt:20}}})
+op- { "_id" : ObjectId("60896aed2c59254680e02e26"), "name" : "Rishabh", "age" : 20 }
+{ "_id" : ObjectId("60896b2a2c59254680e02e27"), "name" : "Ambesh", "age" : 20 }
+{ "_id" : ObjectId("60896d5c2c59254680e02e28"), "name" : "himanshu" }
+{ "_id" : ObjectId("6089718d2c59254680e02e2a"), "name" : "Rishabh", "age" : 18 }
